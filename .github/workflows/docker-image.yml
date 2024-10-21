@@ -24,10 +24,10 @@ jobs:
 
       - name: Build and Push API Image
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/api:latest ./sdv-api
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/api:latest
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/api:latest ./sdv-api
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/api:latest
 
       - name: Build and Push Web Image
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/web:latest ./sdv-web
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/web:latest
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/web:latest ./sdv-web
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/web:latest
