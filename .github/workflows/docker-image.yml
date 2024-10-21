@@ -18,9 +18,10 @@ jobs:
             docker login -u $username -p $password 
         - name: build the docker image
           id: build-docker-image
-          run: |
-            ls -la 
-            docker-compose -f docker-compose.yml up --build
+          run: | 
+            echo ---Building and starting up docker---
+            docker-compose -f ./SebastienGrard/sdv-m1do-containers-project/docker-compose.yml -p testing up -d
+            echo ---Containers up---
         - name: push the docker image
           id: push-docker-image
           run: docker push ${{secrets.DOCKERHUB_USERNAME}}/sdv-m1do-containers-project:latest
