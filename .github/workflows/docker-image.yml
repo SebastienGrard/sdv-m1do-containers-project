@@ -3,15 +3,14 @@ name: Docker Pipeline
 on:
   push:
     branches:
-      - main  # Change cela si tu utilises une autre branche par défaut
-
+      - main 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     services:
       api:
-        image: your_api_image_name  # Remplace par le nom de l'image que tu souhaites
+        image: sdv-api
         ports:
           - 80:80
         volumes:
@@ -20,7 +19,7 @@ jobs:
           --build-arg API_URL=http://api
 
       web:
-        image: your_web_image_name  # Remplace par le nom de l'image que tu souhaites
+        image: sdv-web
         ports:
           - 3000:3000
         volumes:
@@ -30,7 +29,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build and run Docker containers
         run: |
@@ -38,4 +37,4 @@ jobs:
 
       - name: Run tests or other commands
         run: |
-          # Ajoute ici les commandes que tu souhaites exécuter, par exemple des tests
+      
