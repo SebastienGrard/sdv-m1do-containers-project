@@ -22,7 +22,7 @@ impl Joke {
 
 #[get("/")]
 fn index() -> &'static str {
-    "Hello Sup de Vinci Rennes!"
+    "Hello Sup de Vinci Rennes !"
 }
 
 #[get("/")]
