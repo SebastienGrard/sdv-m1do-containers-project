@@ -2,6 +2,11 @@
 
 *Tested with `rust v1.82.0` et `node 23.0.0`.*
 
+LIEN VERS LE DOCKERHUB
+
+https://hub.docker.com/repositories/sebastiengrard
+
+
 ## Development
 
 ### API
@@ -14,7 +19,7 @@ You can also install [cargo-watch](https://crates.io/crates/cargo-watch) to watc
 
 #### Using Docker
 
-> TODO
+ Use 'docker build -t sdv-api .' to build the Docker, and 'docker run sdv-api' to start the dev environment.           
 
 ### Web
 
@@ -24,7 +29,7 @@ Use `npm install` to install all dependancies, and `npm run dev` to start the de
 
 #### Using Docker
 
-> TODO
+ Use 'docker build -t sdv-web .' to build the Docker, and 'docker run sdv-web' to start the dev environment.
 
 ## Production
 
@@ -46,4 +51,5 @@ Run `npm run build` to build the application, and run `npm run start` to start t
 
 #### Using Docker
 
-> TODO
+Run 'docker-compose -f docker-compose.yml up --build -d' to build the application.
+You can have access to the welcome portail on 'http://localhost:3000/', and the Joke Of The Day on 'http://localhost:3000/'
