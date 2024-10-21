@@ -1,17 +1,26 @@
-name: Docker Pipeline
-
+name: Build Docker Image
 on:
   push:
     branches:
       - main
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Run tests or other commands
-        run: |
+    build:
+      name: push docker image to docker hub
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: login to docker hub
+          id: docker-hub
+          env:
+            username: ${{secrets.DOCKERHUB_USERNAME}}
+            password: ${{secrets.DOCKERHUB_PASSWORD}}
+          run: |
+            docker login -u $username -p $password 
+        - name: build the docker image
+          id: build-docker-image
+          run: |
+            ls -la 
+            docker build . -f Dockerfile -t SebastienGrard/sdv-m1do-containers-project:latest
+        - name: push the docker image
+          id: push-docker-image
+          run: docker push ${{secrets.DOCKERHUB_USERNAME}}/sdv-m1do-containers-project:latest
