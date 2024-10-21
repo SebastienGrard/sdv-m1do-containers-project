@@ -39,11 +39,19 @@ Use `npm install` to install all dependancies, and `npm run dev` to start the de
 
 Run `cargo build --release` to build and compile the app. This will create an executable in `/target/release/sdv-api`.
 
-#### Using Docker
-
-> TODO
-
 ### Web
+
+On the file named "sdv-m1do-containers-project/sdv-api/src/main.rs", you can add or remove Joke one the following section :
+
+#[get("/")]
+fn get_random_joke() -> Json<Joke> {
+    let jokes = vec![
+        Joke::new("CONTENT OF THE JOKE", "NAME_OF THE JOKE"),
+        ];
+    Json(jokes.choose(&mut rand::thread_rng()).unwrap().clone())
+}
+
+Add a line "Joke:new" with the right content to add a Joke to the Joke Of The Day.
 
 #### Basics
 
@@ -52,4 +60,8 @@ Run `npm run build` to build the application, and run `npm run start` to start t
 #### Using Docker
 
 Run 'docker-compose -f docker-compose.yml up --build -d' to build the application.
+
+
+
+
 You can have access to the welcome portail on 'http://localhost:3000/', and the Joke Of The Day on 'http://localhost:3000/'
