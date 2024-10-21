@@ -47,3 +47,8 @@ Open localhost:80 in an internet browser to connect with the API.
 You can also use the command 'curl' to get the content of the website page.
 
 If you want to use the Docker image, you can find it on the Docker Hub. The link is : 'https://hub.docker.com/repositories/sebastiengrard'
+
+If you want to add, or remove a Joke Of The Day, you have to go in the following file : 
+"sdv-m1do-containers-project/sdv-api/src/main.rs"
+Edit the file to add or remove a line in the "get-randon-joke" function, following the same exemple as the other jokes.
+Joke::new(("CONTENT OF THE JOKE3, "NAME OF THE JOKE"),
