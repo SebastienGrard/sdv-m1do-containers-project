@@ -33,23 +33,17 @@ Use `npm install` to install all dependancies, and `npm run dev` to start the de
 
 ## Production
 
-### API
+You need to get Docker and Git on your distribution.
+You can use Docker Desktop and VSCode on Windows, for example
 
-#### Basics
+You can clone this repo on your environment, in order to use it.
+Go in the parent folder of the repo in order to make it work.
 
-Run `cargo build --release` to build and compile the app. This will create an executable in `/target/release/sdv-api`.
+Execute the following command 'docker-compose --build' to start the building of the environment.
 
-#### Using Docker
+Open 'localhost:3000' in a browser to connect with the Front End.
+Open localhost:80 in an internet browser to connect with the API.
 
-> TODO
+You can also use the command 'curl' to get the content of the website page.
 
-### Web
-
-#### Basics
-
-Run `npm run build` to build the application, and run `npm run start` to start the Node.js server. 
-
-#### Using Docker
-
-Run 'docker-compose -f docker-compose.yml up --build -d' to build the application.
-You can have access to the welcome portail on 'http://localhost:3000/', and the Joke Of The Day on 'http://localhost:3000/'
+If you want to use the Docker image, you can find it on the Docker Hub. The link is : 'https://hub.docker.com/repositories/sebastiengrard'
