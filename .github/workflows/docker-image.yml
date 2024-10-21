@@ -3,38 +3,23 @@ name: Docker Pipeline
 on:
   push:
     branches:
-      - main 
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    services:
-      api:
-        image: sdv-api
-        ports:
-          - 80:80
-        volumes:
-          - ./sdv-api:/app
-        options: >-
-          --build-arg API_URL=http://api
-
-      web:
-        image: sdv-web
-        ports:
-          - 3000:3000
-        volumes:
-          - ./sdv-web:/app
-        env:
-          API_URL: http://api
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
-      - name: Build and run Docker containers
+      - name: Build Docker images
         run: |
-          docker-compose -f docker-compose.yml up --build -d
+          docker-compose -f docker-compose.yml build
+
+      - name: Run Docker containers
+        run: |
+          docker-compose -f docker-compose.yml up -d
 
       - name: Run tests or other commands
         run: |
-      
