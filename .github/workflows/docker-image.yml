@@ -20,7 +20,7 @@ jobs:
           id: build-docker-image
           run: |
             ls -la 
-            docker build . -f Dockerfile -t SebastienGrard/sdv-m1do-containers-project:latest
+            docker-compose -f docker-compose.yml up --build
         - name: push the docker image
           id: push-docker-image
           run: docker push ${{secrets.DOCKERHUB_USERNAME}}/sdv-m1do-containers-project:latest
