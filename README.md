@@ -47,7 +47,8 @@ On the file named "sdv-m1do-containers-project/sdv-api/src/main.rs", you can add
 fn get_random_joke() -> Json<Joke> {
     let jokes = vec![
         Joke::new("CONTENT OF THE JOKE", "NAME_OF THE JOKE"),
-        ];
+
+     ];
     Json(jokes.choose(&mut rand::thread_rng()).unwrap().clone())
 }
 
